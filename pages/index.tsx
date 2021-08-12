@@ -42,6 +42,10 @@ const GalleryItem = styled.div`
   }
 `;
 
+const StyledHeader = styled.h3`
+  text-align: center;
+`;
+
 type StaticProps = {
   dogs: DogSchema[];
 };
@@ -75,6 +79,18 @@ export default ({ dogs: initialDogs }: StaticProps) => {
       })
     : filteredDogs;
 
+  const gallery = filteredDogs.length ? (
+    <Gallery>
+      {filteredDogs.map((dog) => (
+        <GalleryItem key={dog.id} data-test-id="gallery-item">
+          <DogCard dog={dog} />
+        </GalleryItem>
+      ))}
+    </Gallery>
+  ) : (
+    <StyledHeader>No dogs available.</StyledHeader>
+  );
+
   return (
     <>
       <FlexFilterDiv>
@@ -98,13 +114,7 @@ export default ({ dogs: initialDogs }: StaticProps) => {
           <option value="mp4">MP4</option>
         </StyledSelect>
       </FlexFilterDiv>
-      <Gallery>
-        {filteredDogs.map((dog) => (
-          <GalleryItem key={dog.id} data-test-id="gallery-item">
-            <DogCard dog={dog} />
-          </GalleryItem>
-        ))}
-      </Gallery>
+      {gallery}
     </>
   );
 };
