@@ -1,0 +1,196 @@
+openapi: 3.0.0
+info:
+  title: innovation-lab-code-test API
+  description: API documentation for innovation-lab-code-test next codebase.
+  version: 0.0.1
+  contact:
+    name: API Support
+    email: abel.besas29@gmail.com
+servers:
+  - url: http://localhost:3000
+    description: Local instance
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Dog:
+      type: object
+      properties:
+        url:
+          type: string
+          example: 'https://random.dog/5a4f5744-0cf1-4be8-8fb3-3ec7f1cb611d.mp4'
+          description: 'Url link of the dog media. Can be of types: jpg, gif, png and mp4.'
+        caption:
+          type: string
+          example: 'Welcome to Swagger!'
+          description: 'Caption of the dog media.'
+security:
+  - bearerAuth: []
+paths:
+  /api/dogs:
+    get:
+      tags:
+        - Dog
+      summary: List all dog entries.
+      operationId: getDogs
+      description: List all dog entries.
+      parameters:
+        - in: query
+          name: key
+          description: Pass an optional key for looking up models. <code>value</code> must be supplied for it to work.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: value
+          description: Pass an optional value for looking up models. <code>key</code> must be supplied for it to work.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: advancedQuery
+          description: Pass an optional query string to show matching models. Make sure that your JSON Object is URIEncoded.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sortBy
+          description: An optional query to sort data view by the passed value.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: asc
+          description: Pass <code>1</code> if sort data in an ascending order, <code>0</code> if descending.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 1
+        - in: query
+          name: total
+          description: Pass <code>true</code> to display count of results, <code>false</code> to hide.
+          required: false
+          schema:
+            type: boolean
+        - in: query
+          name: start
+          description: Number of records to skip for pagination.
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: count
+          description: Maximum number of records to return.
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: dataView
+          description: Toggle data view based on passed settings.
+          example: 'default'
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: Pass optional search string for looking up models from database.
+          required: false
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Object/s in JSON format.
+        '400':
+          description: Invalid input.
+
+    post:
+      tags:
+        - Dog
+      summary: Creates a dog entry.
+      operationId: addDog
+      description: Creates a dog entry.
+      parameters:
+        - in: query
+          name: key
+          description: Pass an optional key for looking up models. <code>value</code> must be supplied for it to work.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: value
+          description: Pass an optional value for looking up models. <code>key</code> must be supplied for it to work.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: advancedQuery
+          description: Pass an optional query string to show matching models. Make sure that your JSON Object is URIEncoded.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: sortBy
+          description: An optional query to sort data view by the passed value.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: asc
+          description: Pass <code>1</code> if sort data in an ascending order, <code>0</code> if descending.
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 1
+        - in: query
+          name: total
+          description: Pass <code>true</code> to display count of results, <code>false</code> to hide.
+          required: false
+          schema:
+            type: boolean
+        - in: query
+          name: start
+          description: Number of records to skip for pagination.
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: count
+          description: Maximum number of records to return.
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: dataView
+          description: Toggle data view based on passed settings.
+          example: 'default'
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: search
+          description: Pass optional search string for looking up models from database.
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/Dog'
+      responses:
+        '200':
+          description: Object/s in JSON format.
+        '400':
+          description: Invalid input.
