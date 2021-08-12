@@ -60,14 +60,16 @@ export default ({ dogs: initialDogs }: StaticProps) => {
   };
 
   let filteredDogs = filter
-    ? dogs.filter((dog) => dog.caption.toLowerCase().includes(filter.toLowerCase()))
+    ? dogs.filter((dog) =>
+        dog.caption.toLowerCase().includes(filter.toLowerCase())
+      )
     : dogs;
 
   filteredDogs = sort
     ? filteredDogs.filter((dog) => {
-        const normalizedUrl = getUrlFileType(dog.url).toLowerCase()
-        if (sort === 'jpg') {
-          return normalizedUrl === 'jpg' || normalizedUrl === 'jpeg';
+        const normalizedUrl = getUrlFileType(dog.url).toLowerCase();
+        if (sort === "jpg") {
+          return normalizedUrl === "jpg" || normalizedUrl === "jpeg";
         }
         return normalizedUrl === sort;
       })
@@ -98,10 +100,7 @@ export default ({ dogs: initialDogs }: StaticProps) => {
       </FlexFilterDiv>
       <Gallery>
         {filteredDogs.map((dog) => (
-          <GalleryItem
-            key={dog.id}
-            data-test-id="gallery-item"
-          >
+          <GalleryItem key={dog.id} data-test-id="gallery-item">
             <DogCard dog={dog} />
           </GalleryItem>
         ))}

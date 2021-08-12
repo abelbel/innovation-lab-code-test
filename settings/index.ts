@@ -1,5 +1,3 @@
-//env variables
-
 export const resolutions = {
   mobileS: "320px",
   mobileM: "375px",
