@@ -1,0 +1,54 @@
+{
+  "name": "innovation-lab-code-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/CBAInnovationLab/innovation-lab-code-test.git"
+  },
+  "author": "Ethan <ethan.r.williams@live.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "test": "jest"
+  },
+  "dependencies": {
+    "next": "^9.5.5",
+    "pg": "^8.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.3",
+    "sequelize": "^5.21.2",
+    "styled-components": "^5.2.0",
+    "web-vitals": "^0.2.4"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.9",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^27.0.0",
+    "@types/node": "^12.12.7",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.12",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.6.3",
+    "babel-plugin-styled-components": "^1.10.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.3.5"
+  },
+  "description": "## Introduction",
+  "bugs": {
+    "url": "https://github.com/CBAInnovationLab/innovation-lab-code-test/issues"
+  },
+  "homepage": "https://github.com/CBAInnovationLab/innovation-lab-code-test#readme"
+}
