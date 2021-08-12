@@ -57,3 +57,11 @@ Create a basic gallery to display media items.
    - `e-r-w`
 
 If you have any questions, please raise a Gitlab issue against this repository and tag `e-r-w` in it. If you have any privacy concerns you may alternatively contact Tex directly.
+
+## Test
+
+- `npm test` - run all test suites and tests.
+
+## Documentation
+
+- `docs/openapi.yaml` - Next API documentation file. 
