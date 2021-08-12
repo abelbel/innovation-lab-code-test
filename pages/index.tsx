@@ -110,11 +110,11 @@ export default ({ dogs: initialDogs }: StaticProps) => {
 };
 
 export const getStaticProps: GetStaticProps<StaticProps> = async () => {
-  const response = await fetch("http://localhost:3000/api/getDogs");
-  const dogs = await response.json();
+  const response = await fetch("http://localhost:3000/api/dogs");
+  const data = await response.json();
   return {
     props: {
-      dogs,
+      dogs: data.result,
     },
   };
 };

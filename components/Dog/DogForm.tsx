@@ -122,7 +122,7 @@ const DogForm = () => {
       url: formState.url,
       caption: formState.caption,
     };
-    await fetch("http://localhost:3000/api/addDog", {
+    await fetch("http://localhost:3000/api/dogs", {
       method: "POST",
       body: JSON.stringify(formData),
       headers: {
